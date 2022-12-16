@@ -4,6 +4,7 @@ int main(){
 
     Admin admin1("Boris", "12345");
 
+    /*
     string tempUsername = "";
 
     do {
@@ -19,7 +20,7 @@ int main(){
 
     } while (true);
 
-
+    */
 
 
 
