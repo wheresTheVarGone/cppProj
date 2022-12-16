@@ -1,7 +1,12 @@
-#ifndef LOGINDATA_H
-#define LOGINDATA_H
+#pragma once
 
-#define ADMIN_UNAME hehexd
-#define ADMIN_PW 12345
+/*
 
-#endif // LOGINDATA_H
+    This header contains the initial login information used for first time access.
+    This is necessary since the current backend doesn't
+
+    !!! This is used only for alpha testing !!!
+*/
+
+const string ADMIN_USERNAME = "Boris";
+const string ADMIN_PASSWORD = "12345";

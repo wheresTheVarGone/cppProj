@@ -1,15 +1,27 @@
-
-#include "modules/login/register.h"
-#include "modules/login/login.h"
-#include "modules/userChoice/userChoice.h"
-
-using namespace std;
+#include "libIncludes.h"
 
 int main(){
 
-    inputData("Username");
+    Admin admin1("Boris", "12345");
 
-    checkData( inputData("Password"), inputData("Password") );
+    string tempUsername = "";
+
+    do {
+
+    cout << "Please enter your username -> ";
+    getline(cin, tempUsername);
+
+    if(admin1.getUsername() == tempUsername)
+        cout << "Success!" << endl;
+    else
+        cout << "Please reconsider." << endl;
+
+
+    } while (true);
+
+
+
+
 
     return 0;
 }
