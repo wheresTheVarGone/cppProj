@@ -7,7 +7,11 @@
 #include "modules/classes/admin.h"
 #include "modules/classes/user.h"
 
+#include "modules/classes/data/userList.h"
+
+
 #include <iostream>
 #include <string>
+#include <vector>
 
 using namespace std;

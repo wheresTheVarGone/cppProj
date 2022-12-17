@@ -12,8 +12,10 @@ class Admin{
         Admin(string username, string password, bool isAdmin);
         string getUsername();
         string getPassword();
+        bool getStatus();
         void setUsername(string username);
         void setPassword(string password);
+
 };
 
 Admin::Admin(string username, string password, bool isAdmin){
@@ -41,4 +43,11 @@ void Admin::setUsername(string username){
 void Admin::setPassword(string password){
 
     this->password = password;
+}
+
+bool Admin::getStatus(){
+
+    if(this->isAdmin)
+        return true;
+    return false;
 }
