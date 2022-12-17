@@ -27,13 +27,6 @@ int getUserChoiceNum(){
     return choice;
 }
 
-bool checkIsInRange(int number, int bottomBorder, int topBorder){
-
-    if(number < bottomBorder || number > topBorder)
-        return true;
-    return false;
-}
-
 int userChoiceCheck(){
 
     int choiceNum;

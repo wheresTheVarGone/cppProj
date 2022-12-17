@@ -5,7 +5,7 @@ class Admin{
     private:
 
         string username, password;
-
+        bool isAdmin;
     public:
 
         Admin(string username, string password);

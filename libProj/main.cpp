@@ -2,26 +2,22 @@
 
 int main(){
 
-    Admin admin1("Boris", "12345");
+    string pW;
+    // inputData("Password");
 
-    /*
-    string tempUsername = "";
+    string uName = inputData("Username");
 
-    do {
+    checkData(inputData("Password"), pW = inputData("Password"));
 
-    cout << "Please enter your username -> ";
-    getline(cin, tempUsername);
+    admins.push_back(Admin(uName, pW));
 
-    if(admin1.getUsername() == tempUsername)
-        cout << "Success!" << endl;
-    else
-        cout << "Please reconsider." << endl;
+    for(Admin admn: admins) {
 
+        cout << admn.getUsername() << ", " <<admn.getPassword() << endl;
 
-    } while (true);
+    }
 
-    */
-
+    // userChoiceCheck();
 
 
     return 0;
