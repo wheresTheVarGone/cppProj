@@ -1,42 +1,41 @@
 #pragma once
 
-class Admin{
+class User{
 
     private:
 
         string username, password;
-        bool isAdmin;
     public:
 
-        Admin(string username, string password);
+        User(string username, string password);
         string getUsername();
         string getPassword();
         void setUsername(string username);
         void setPassword(string password);
 };
 
-Admin::Admin(string username, string password){
+User::User(string username, string password){
 
     setUsername(username);
     setPassword(password);
 }
 
-string Admin::getUsername(){
+string User::getUsername(){
 
     return this->username;
 }
 
-string Admin::getPassword(){
+string User::getPassword(){
 
     return this->password;
 }
 
-void Admin::setUsername(string username){
+void User::setUsername(string username){
 
     this->username = username;
 }
 
-void Admin::setPassword(string password){
+void User::setPassword(string password){
 
     this->password = password;
 }

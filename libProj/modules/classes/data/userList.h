@@ -2,6 +2,6 @@
 
 #include <vector>
 
-vector<Admin> admins;
+//vector<Admin> admins;
 
 

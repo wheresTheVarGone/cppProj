@@ -3,6 +3,8 @@
 #include <iostream>
 #include <string>
 
+#include "classes/admin.h"
+
 using namespace std;
 
 bool checkIsInRange(int number, int bottomBorder, int topBorder){
@@ -15,7 +17,6 @@ bool checkIsInRange(int number, int bottomBorder, int topBorder){
 string ensureData(string msg, int bottomBorder, int topBorder){
 
     string temp = "";
-
     do {
         cout << msg << " -> ";
         getline(cin, temp);
@@ -24,13 +25,10 @@ string ensureData(string msg, int bottomBorder, int topBorder){
             cout << msg << " treba ciniti 5 do 20 karaktera.\n";
 
     }while(checkIsInRange(temp.size(), bottomBorder, topBorder));
-
     return temp;
 }
 
 string inputData(string msg){
-
-
 
     if(msg == "Username")
         return ensureData(msg, 5, 20);
@@ -39,9 +37,6 @@ string inputData(string msg){
     else
         cout << "Doslo je do neocekivane greske.\n";
         return "Please be patient.";
-
-
-
 }
 
 bool checkData(string inData, string existData){
@@ -49,7 +44,6 @@ bool checkData(string inData, string existData){
     if(inData == existData)
         return true;
     return false;
-
 }
 
 

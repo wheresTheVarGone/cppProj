@@ -3,7 +3,7 @@
 /*
 
     This header contains the initial login information used for first time access.
-    This is necessary since the current backend doesn't
+    This is necessary since the current backend doesn't have a clue.
 
     !!! This is used only for alpha testing !!!
 */
