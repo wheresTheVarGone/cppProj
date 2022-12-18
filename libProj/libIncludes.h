@@ -1,6 +1,7 @@
 #pragma once
 
 #include "modules/register.h"
+#include "modules/login.h"
 #include "modules/userChoice.h"
 #include "modules/dataCheck.h"
 
