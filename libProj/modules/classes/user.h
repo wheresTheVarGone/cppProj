@@ -5,19 +5,22 @@ class User{
     private:
 
         string username, password;
+        bool isAdmin;
     public:
 
-        User(string username, string password);
+        User(string username, string password, bool isAdmin);
         string getUsername();
         string getPassword();
+        bool getAdminStatus();
         void setUsername(string username);
         void setPassword(string password);
 };
 
-User::User(string username, string password){
+User::User(string username, string password, bool isAdmin){
 
     setUsername(username);
     setPassword(password);
+    this->isAdmin = isAdmin;
 }
 
 string User::getUsername(){
@@ -38,4 +41,9 @@ void User::setUsername(string username){
 void User::setPassword(string password){
 
     this->password = password;
+}
+
+bool User::getAdminStatus(){
+
+    return this->isAdmin;
 }

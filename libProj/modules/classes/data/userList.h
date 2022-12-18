@@ -2,7 +2,6 @@
 
 #include <vector>
 
-vector<Admin> admins;
-
+vector<User> users;
 
 

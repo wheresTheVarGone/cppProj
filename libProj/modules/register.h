@@ -3,8 +3,6 @@
 #include <iostream>
 #include <string>
 
-#include "classes/admin.h"
-
 using namespace std;
 
 bool checkIsInRange(int number, int bottomBorder, int topBorder){
