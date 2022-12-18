@@ -1,5 +1,7 @@
 #pragma once
 
+#include "ops/hash.h"
+
 class User{
 
     private:
@@ -43,7 +45,7 @@ void User::setUsername(string username){
 
 void User::setPassword(string password){
 
-    this->password = password;
+    this->password = hashF(password);
 }
 
 bool User::getAdminStatus(){

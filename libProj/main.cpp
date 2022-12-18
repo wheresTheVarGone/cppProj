@@ -6,6 +6,8 @@ int main(){
         if(initReg(true)){
             cout << users[*ptr - 1].getUserId() << endl;
         }
+        cout << users[*ptr-1].getPassword() << endl;
     }
+
     return 0;
 }

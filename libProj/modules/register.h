@@ -2,11 +2,12 @@
 
 #include <iostream>
 #include <string>
+#include <string.h>
 
 #include "dataCheck.h"
 #include "classes/user.h"
 #include "classes/data/userList.h"
-#include <string.h>
+
 
 using namespace std;
 
@@ -26,18 +27,18 @@ string inputData(string msg){
 
 bool initReg(bool isAdmin){
 
-    char *tempStr1 = new char[20];
-    char *tempStr2 = new char[20];
+    char *tempUName = new char[20];
+    char *tempPWord = new char[20];
 
-    strcpy(tempStr1, inputData("Username").c_str());
-    strcpy(tempStr2, inputData("Password").c_str());
+    strcpy(tempUName, inputData("Username").c_str());
+    strcpy(tempPWord, inputData("Password").c_str());
 
-    if(checkData(tempStr2, inputData("Password"))){
+    if(checkData(tempPWord, inputData("Password"))){
 
-        users.push_back(User(tempStr1, tempStr2, isAdmin, userNum));
+        users.push_back(User(tempUName, tempPWord, isAdmin, userNum));
         *ptr = *ptr + 1;
-        free(tempStr1);
-        free(tempStr2);
+        free(tempUName);
+        free(tempPWord);
         return true;
     }
     cout << "Lozinke se ne poklapaju." << endl;
