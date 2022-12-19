@@ -4,25 +4,20 @@
 #include <string>
 #include <string.h>
 
+#include "delay.h"
 #include "dataCheck.h"
 #include "classes/user.h"
 #include "classes/data/userList.h"
-
+#include "formatting.h"
 
 using namespace std;
 
 int userNum = 0;
-int *ptr = &userNum;
+int * ptr = &userNum;
 
 string inputData(string msg){
 
-    if(msg == "Username")
-        return ensureData(msg, 5, 20);
-    else if(msg == "Password")
-        return ensureData(msg, 5, 20);
-    else
-        cout << "Doslo je do neocekivane greske.\n";
-        return "Please be patient.";
+    return ensureData(msg, 5, 20);
 }
 
 bool initReg(bool isAdmin){
@@ -33,32 +28,40 @@ bool initReg(bool isAdmin){
     while(true){
 
         cout << "Registruj novog korisnika:" << endl;
+        straightLine();
 
-        strcpy(tempUName, inputData("Username").c_str());
+        strcpy(tempUName, inputData("K. ime ").c_str());
 
         if(isUserExistant(tempUName)){
             do {
 
                 cout << "Korisnicko ime zauzeto." << endl;
-                strcpy(tempUName, inputData("Username").c_str());
+                straightLine();
+                clearDelay(*dTPtr);
+                cout << "Registruj novog korisnika:" << endl;
+                strcpy(tempUName, inputData("K. ime ").c_str());
 
             } while(isUserExistant(tempUName));
         }
 
-        strcpy(tempPWord, inputData("Password").c_str());
+        strcpy(tempPWord, inputData("Lozinka").c_str());
 
-        cout << "Ponovite password." << endl;
+        cout << "Ponovno unesite lozinku." << endl;
 
-        if(checkData(tempPWord, inputData("Password"))){
+        if(checkData(tempPWord, inputData("Lozinka"))){
 
             users.push_back(User(tempUName, tempPWord, isAdmin, userNum));
             *ptr = *ptr + 1;
+            straightLine();
             cout << "Uspjesno registrovan korisnik " << tempUName << endl;
             free(tempUName);
             free(tempPWord);
+            clearDelay(*dTPtr);
             return true;
         } else {
+            straightLine();
             cout << "Lozinke se ne poklapaju, probajte ponovno." << endl;
+            clearDelay(*dTPtr);
         }
     }
 }

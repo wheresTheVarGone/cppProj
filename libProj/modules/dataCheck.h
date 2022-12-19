@@ -16,7 +16,7 @@ string ensureData(string msg, int bottomBorder, int topBorder){
 
     string temp = "";
     do {
-        cout << msg << " -> ";
+        cout << msg << "\t-> ";
         getline(cin, temp);
 
         if(checkIsInRange(temp.size(), bottomBorder, topBorder))

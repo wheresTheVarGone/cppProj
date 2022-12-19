@@ -2,13 +2,14 @@
 
 #include "register.h"
 #include "dataCheck.h"
+#include "delay.h"
 
 void greetUser(bool userStatus, string username){
 
     if(userStatus)
-        cout << "Dobrodosao sistemski administratore, " << username;
+        cout << "Dobrodosao sistemski administratore, " << username << "\n";
     else
-        cout << "Dobrodosao, " << username;
+        cout << "Dobrodosao, " << username << "\n";
 }
 
 
@@ -19,10 +20,11 @@ bool login(){
 
     while(true) {
 
-        cout << "Molimo unesite svoje podatke kako bi se ulogovali kao postojeci korisnik." << endl;
+        cout << "Molimo unesite odgovarajuce podatke kako bi se ulogovali kao postojeci korisnik." << endl;
+        straightLine();
 
-        strcpy(tempUName, inputData("Username").c_str());
-        strcpy(tempPWord, inputData("Password").c_str());
+        strcpy(tempUName, inputData("K. ime ").c_str());
+        strcpy(tempPWord, inputData("Lozinka").c_str());
 
         if(isUserExistant(tempUName)){
 
@@ -32,23 +34,31 @@ bool login(){
 
                     if(usr.getPassword() == hashF(tempPWord)) {
 
+                        straightLine();
                         free(tempUName);
                         free(tempPWord);
-
                         bool status = usr.getAdminStatus();
 
                         if(status) {
+                            clearDelay(*dTPtr);
                             greetUser(status, usr.getUsername());
+                            straightLine();
                             return true;
                         } else {
+
+                            clearDelay(*dTPtr);
                             greetUser(status, usr.getUsername());
+                            straightLine();
                             return false;
                         }
                     }
                 }
             }
         }
-        cout << "Pogresan password ili username." << endl;
+        straightLine();
+        cout << "Pogresna lozinka ili korisnicko ime. Pokusajte ponovno." << endl;
+        clearDelay(*dTPtr);
+
     }
 }
 

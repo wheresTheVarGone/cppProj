@@ -2,19 +2,11 @@
 
 int main(){
 
-    /*
-    while(true){
-        if(initReg(true)){
-            cout << users[*ptr - 1].getUserId() << endl;
-            cout << users[*ptr-1].getPassword() << endl;
-        }
-    }
-    */
+    applyFont();
 
-    initReg(false);
-
+    initReg(true);
     login();
-
+    displayMenu();
 
 
 
