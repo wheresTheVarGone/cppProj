@@ -5,8 +5,9 @@ int main(){
     applyFont();
 
     initReg(true);
-    login();
-    displayMenu();
+
+    if(login())
+        displayMenu();
 
 
 
