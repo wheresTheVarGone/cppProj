@@ -10,5 +10,8 @@ int main(){
         }
     }
     */
+
+    while(initReg(true));
+
     return 0;
 }

@@ -31,6 +31,15 @@ bool initReg(bool isAdmin){
     char *tempPWord = new char[20];
 
     strcpy(tempUName, inputData("Username").c_str());
+
+    if(isUserExistant(tempUName)){
+        do {
+
+            cout << "Korisnicko ime je vec u upotrebi." << endl;
+            strcpy(tempUName, inputData("Username").c_str());
+
+        } while(isUserExistant(tempUName));
+    }
     strcpy(tempPWord, inputData("Password").c_str());
 
     if(checkData(tempPWord, inputData("Password"))){
@@ -40,7 +49,8 @@ bool initReg(bool isAdmin){
         free(tempUName);
         free(tempPWord);
         return true;
-    }
+        }
+
     cout << "Lozinke se ne poklapaju." << endl;
     return false;
 }

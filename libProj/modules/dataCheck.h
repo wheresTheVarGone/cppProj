@@ -2,6 +2,9 @@
 
 using namespace std;
 
+#include "classes/user.h"
+#include "classes/data/userList.h"
+
 bool checkIsInRange(int number, int bottomBorder, int topBorder){
 
     if(number < bottomBorder || number > topBorder)
@@ -29,5 +32,16 @@ bool checkData(string inData, string existData){
         return true;
     return false;
 }
+
+bool isUserExistant(string username){
+
+    for(User usrs: users){
+        if(username == usrs.getUsername())
+            return true;
+    }
+    return false;
+}
+
+
 
 
