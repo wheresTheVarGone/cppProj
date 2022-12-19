@@ -42,6 +42,15 @@ bool isUserExistant(string username){
     return false;
 }
 
+int getUserId(string username){
+
+    for(User usrs: users){
+        if(username == usrs.getUsername())
+            return usrs.getUserId();
+    }
+    return -1;
+
+}
 
 
 

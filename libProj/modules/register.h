@@ -30,29 +30,37 @@ bool initReg(bool isAdmin){
     char *tempUName = new char[20];
     char *tempPWord = new char[20];
 
-    strcpy(tempUName, inputData("Username").c_str());
+    while(true){
 
-    if(isUserExistant(tempUName)){
-        do {
+        cout << "Registruj novog korisnika:" << endl;
 
-            cout << "Korisnicko ime je vec u upotrebi." << endl;
-            strcpy(tempUName, inputData("Username").c_str());
+        strcpy(tempUName, inputData("Username").c_str());
 
-        } while(isUserExistant(tempUName));
-    }
-    strcpy(tempPWord, inputData("Password").c_str());
+        if(isUserExistant(tempUName)){
+            do {
 
-    if(checkData(tempPWord, inputData("Password"))){
+                cout << "Korisnicko ime zauzeto." << endl;
+                strcpy(tempUName, inputData("Username").c_str());
 
-        users.push_back(User(tempUName, tempPWord, isAdmin, userNum));
-        *ptr = *ptr + 1;
-        free(tempUName);
-        free(tempPWord);
-        return true;
+            } while(isUserExistant(tempUName));
         }
 
-    cout << "Lozinke se ne poklapaju." << endl;
-    return false;
+        strcpy(tempPWord, inputData("Password").c_str());
+
+        cout << "Ponovite password." << endl;
+
+        if(checkData(tempPWord, inputData("Password"))){
+
+            users.push_back(User(tempUName, tempPWord, isAdmin, userNum));
+            *ptr = *ptr + 1;
+            cout << "Uspjesno registrovan korisnik " << tempUName << endl;
+            free(tempUName);
+            free(tempPWord);
+            return true;
+        } else {
+            cout << "Lozinke se ne poklapaju, probajte ponovno." << endl;
+        }
+    }
 }
 
 

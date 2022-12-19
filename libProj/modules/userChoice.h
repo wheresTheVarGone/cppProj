@@ -1,5 +1,4 @@
-#ifndef USERCHOICE_H
-#define USERCHOICE_H
+#pragma once
 
 #include <iostream>
 #include <typeinfo>
@@ -40,9 +39,6 @@ int userChoiceCheck(){
     } while( checkIsInRange(choiceNum, 1, 4));
     return choiceNum;
 }
-
-
-#endif // USERCHOICE_H
 
 
 

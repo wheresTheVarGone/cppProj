@@ -11,7 +11,13 @@ int main(){
     }
     */
 
-    while(initReg(true));
+    initReg(false);
+
+    login();
+
+
+
+
 
     return 0;
 }
