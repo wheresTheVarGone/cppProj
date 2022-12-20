@@ -4,7 +4,7 @@
 #include <typeinfo>
 
 string adminFeatures = "1 - Dodaj novog korisnika\n2 - Pregledaj postojece korisnike\n3 - Obrisi postojeceg korisnika\n4 - Dodaj novu knjigu\n5 - Pregledaj postojece knjige\n6 - Obrisi postojecu knjigu\n7 - Odjavi se\n";
-string userFeatures = "Coming soon.\n";
+string userFeatures = "1 - Pregledaj svoje knjige\n2 - Pregledaj dostupne knjige\n3 - Iznajmi knjigu\n4 - Vrati knjigu\n5 - Odjavi se\n";
 
 using namespace std;
 

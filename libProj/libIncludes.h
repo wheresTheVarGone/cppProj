@@ -8,6 +8,7 @@
 #include "modules/userChoice.h"
 #include "modules/dataCheck.h"
 #include "modules/adminFeatures.h"
+#include "modules/userFeatures.h"
 #include "modules/classes/user.h"
 #include "modules/classes/book.h"
 #include "modules/classes/data/userList.h"
