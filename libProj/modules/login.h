@@ -7,9 +7,9 @@
 void greetUser(bool userStatus, string username){
 
     if(userStatus)
-        cout << "Dobrodosao sistemski administratore, " << username << "\n";
+        cout << "Ulogovani ste kao sistemski administrator, " << username << "\n";
     else
-        cout << "Dobrodosao, " << username << "\n";
+        cout << "Ulogovani ste kao " << username << "\n";
 }
 
 
@@ -34,7 +34,7 @@ bool login(){
 
                     if(usr.getPassword() == hashF(tempPWord)) {
 
-                        straightLine();
+
                         free(tempUName);
                         free(tempPWord);
                         bool status = usr.getAdminStatus();
@@ -42,13 +42,10 @@ bool login(){
                         if(status) {
                             clearDelay(*dTPtr);
                             greetUser(status, usr.getUsername());
-                            straightLine();
                             return true;
                         } else {
-
                             clearDelay(*dTPtr);
                             greetUser(status, usr.getUsername());
-                            straightLine();
                             return false;
                         }
                     }

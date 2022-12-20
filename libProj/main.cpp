@@ -8,7 +8,7 @@ int main(){
     while(true){
 
     if(login())
-        featureSelection();
+        adminFeatureSelection();
     else
         return 0;
     }

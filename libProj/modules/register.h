@@ -36,7 +36,6 @@ bool initReg(bool isAdmin){
             do {
 
                 cout << "Korisnicko ime zauzeto." << endl;
-                straightLine();
                 clearDelay(*dTPtr);
                 cout << "Registruj novog korisnika:" << endl;
                 strcpy(tempUName, inputData("K. ime ").c_str());

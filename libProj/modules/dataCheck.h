@@ -52,5 +52,14 @@ int getUserId(string username){
 
 }
 
+bool getUserAdminStatus(string username){
+
+    for(User usrs: users){
+        if(username == usrs.getUsername())
+            return usrs.getAdminStatus();
+    }
+    return false;
+}
+
 
 
