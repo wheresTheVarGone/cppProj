@@ -4,9 +4,10 @@
 #include "register.h"
 #include "userChoice.h"
 #include "delay.h"
-#include "classes/data/userList.h"
 #include "formatting.h"
 #include "dataCheck.h"
+#include "classes/data/userList.h"
+#include "classes/data/bookList.h"
 
 #include <algorithm>
 
@@ -56,35 +57,116 @@ void deleteExistingUser(){
     do {
         cout << "Unesite korisnicko ime korisnika kojeg zelite ukloniti iz sistema." << endl;
         straightLine();
+        cout << "Unesite \"X\" da prekinete operaciju." << endl;
         cout << "K. ime -> ";
         getline(cin, username);
 
-        if(isUserExistant(username)){
+        if(username == "X"){
 
-            if(getUserAdminStatus(username)){
+            erased = false;
+        } else {
 
-                cout << "Brisanje admina iz sistema nije dozvoljeno." << endl;
-                erased = false;
+            if(isUserExistant(username)){
+
+                if(getUserAdminStatus(username)){
+
+                    cout << "Brisanje admina iz sistema nije dozvoljeno." << endl;
+                    erased = false;
+                } else {
+
+                    users.erase(find_if(users.begin(), users.end(),
+                    [&](User u){ return u.getUsername() == username; }));
+                    erased = false;
+                    cout << "Korisnik " << username << " je usjpesno obrisan iz sistema." << endl;
+                }
+
             } else {
-
-                users.erase(find_if(users.begin(), users.end(),
-                [&](User u){ return u.getUsername() == username; }));
-                erased = false;
-                cout << "Korisnik " << username << " je usjpesno obrisan iz sistema." << endl;
+                cout << "Uneseni korisnik ne postoji." << endl;
+                erased = true;
             }
 
-        } else {
-            cout << "Uneseni korisnik ne postoji." << endl;
-            erased = true;
         }
-
     } while(erased);
     clearDelay(*dTPtr);
 }
 
-void changePassword(){
+void addBook(){
 
+    string name;
+    string uniqueCode;
+    int quantity;
 
+    cout << "Unesite relevantne podatke o knjizi koju dodajete u sistem." << endl;
+
+    straightLine();
+
+    name = inputData("Ime knjige");
+
+    uniqueCode = inputData("Unikatni kod");
+
+    if(isBookExistant(uniqueCode)){
+
+        cout << "Knjiga sa tim unikatnim kodom vec postoji!" << endl;
+    } else {
+
+        cout << "Primjeraka dostupno -> ";
+        cin >> quantity;
+
+        fflush(stdin);
+
+        books.push_back(Book(name, uniqueCode, true, quantity));
+
+    }
+    clearDelay(*dTPtr);
+}
+
+void viewExistingBooks(){
+
+    cout << "Postojece knjige " << endl;
+    straightLine();
+
+    for(Book book : books){
+        cout << "Naziv knjige -> " << book.getName() << endl;
+        cout << "Unikatni kod -> " << book.getUniqueId() << endl;
+        cout << "Broj dostupnih primjeraka -> " << book.getQuantityAvailable() << endl;
+        straightLine();
+    }
+    cout << "0 - Nazad" << endl;
+    while(getUserChoiceNum(0, 0) != 0){
+            straightLine();
+    }
+    clearDelay(*dTPtr);
+}
+
+void deleteExistingBook(){
+
+    string code;
+    bool erased = true;
+    do {
+        cout << "Unesite unikatni kod knjige koju zelite ukloniti iz sistema." << endl;
+        straightLine();
+        cout << "Unesite \"X\" da prekinete operaciju." << endl;
+        cout << "Unikatni kod -> ";
+        getline(cin, code);
+
+        if(code == "X"){
+
+            erased = false;
+        } else {
+
+            if(isBookExistant(code)){
+
+                books.erase(find_if(books.begin(), books.end(),
+                [&](Book b){ return b.getUniqueId() == code; }));
+                erased = false;
+                cout << "Knjiga sa kodom \"" << code << "\" je usjpesno obrisana iz sistema." << endl;
+            } else {
+                cout << "Knjiga sa unesenim unikatnim kodom ne postoji." << endl;
+                erased = true;
+            }
+        }
+    } while(erased);
+    clearDelay(*dTPtr);
 }
 
 void adminFeatureSelection(){
@@ -113,6 +195,18 @@ void adminFeatureSelection(){
         case 3:
             clearDelay(*dTPtr);
             deleteExistingUser();
+            break;
+        case 4:
+            clearDelay(*dTPtr);
+            addBook();
+            break;
+        case 5:
+            clearDelay(*dTPtr);
+            viewExistingBooks();
+            break;
+        case 6:
+            clearDelay(*dTPtr);
+            deleteExistingBook();
             break;
         case 7:
             logoutInitiated = !logoutInitiated;

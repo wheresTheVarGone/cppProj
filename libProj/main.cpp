@@ -1,6 +1,7 @@
 #include "libIncludes.h"
 
 int main(){
+
     applyConsoleFont();
 
     initReg(true);

@@ -3,7 +3,7 @@
 #include <iostream>
 #include <typeinfo>
 
-string adminFeatures = "1 - Dodaj novog korisnika\n2 - Pregledaj postojece korisnike\n3 - Obrisi postojeceg korisnika\n7 - Odjavi se\n";
+string adminFeatures = "1 - Dodaj novog korisnika\n2 - Pregledaj postojece korisnike\n3 - Obrisi postojeceg korisnika\n4 - Dodaj novu knjigu\n5 - Pregledaj postojece knjige\n6 - Obrisi postojecu knjigu\n7 - Odjavi se\n";
 string userFeatures = "Coming soon.\n";
 
 using namespace std;

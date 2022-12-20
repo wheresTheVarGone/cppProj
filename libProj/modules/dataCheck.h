@@ -3,7 +3,9 @@
 using namespace std;
 
 #include "classes/user.h"
+#include "classes/book.h"
 #include "classes/data/userList.h"
+#include "classes/data/bookList.h"
 
 bool checkIsInRange(int number, int bottomBorder, int topBorder){
 
@@ -19,8 +21,11 @@ string ensureData(string msg, int bottomBorder, int topBorder){
         cout << msg << "\t-> ";
         getline(cin, temp);
 
-        if(checkIsInRange(temp.size(), bottomBorder, topBorder))
+        if(checkIsInRange(temp.size(), bottomBorder, topBorder)){
             cout << msg << " treba ciniti " << bottomBorder << " do " << topBorder << " karaktera.\n";
+            straightLine();
+        }
+
 
     }while(checkIsInRange(temp.size(), bottomBorder, topBorder));
     return temp;
@@ -61,5 +66,12 @@ bool getUserAdminStatus(string username){
     return false;
 }
 
+bool isBookExistant(string name){
 
+    for(Book book : books){
+        if(name == book.getUniqueId())
+            return true;
+    }
+    return false;
+}
 

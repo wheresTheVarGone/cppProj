@@ -7,9 +7,12 @@
 #include "modules/login.h"
 #include "modules/userChoice.h"
 #include "modules/dataCheck.h"
-#include "modules/classes/user.h"
-#include "modules/classes/data/userList.h"
 #include "modules/adminFeatures.h"
+#include "modules/classes/user.h"
+#include "modules/classes/book.h"
+#include "modules/classes/data/userList.h"
+#include "modules/classes/data/bookList.h"
+
 
 using namespace std;
 
