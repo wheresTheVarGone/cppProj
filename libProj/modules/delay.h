@@ -10,7 +10,7 @@ using namespace std;
 using namespace std::this_thread;
 using namespace std::chrono;
 
-int defaultDelayTime = 3; // Broj sekundi koje ce korisnik cekati nakon izvrsenih operacija
+int defaultDelayTime = 1; // Broj sekundi koje ce korisnik cekati nakon izvrsenih operacija
 int * dTPtr = &defaultDelayTime;
 
 

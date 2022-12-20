@@ -1,13 +1,17 @@
 #include "libIncludes.h"
 
 int main(){
-
-    applyFont();
+    applyConsoleFont();
 
     initReg(true);
 
+    while(true){
+
     if(login())
-        displayMenu();
+        featureSelection();
+    else
+        return 0;
+    }
 
 
 

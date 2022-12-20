@@ -3,16 +3,22 @@
 #include <iostream>
 #include <typeinfo>
 
+string adminFeatures = "1 - Dodaj novog korisnika\n2 - Pregledaj postojece korisnike\n3 - Izmijeni postojeceg korisnika\n4 - Obrisi postojeceg korisnika\n7 - Odjavi se\n";
+string userFeatures = "Coming soon.\n";
+
+int adminFeaturesNum;
+int userFeaturesNum;
+
 using namespace std;
 
-void displayMenu(){
-
-    cout << "1 - Unesi novi zapis\n2 - Izmijeni postojeci zapis\n3 - Pregledaj postojece zapise\n4 - Obrisi postojeci zapis\n";
+void displayMenu(bool isAdmin){
+    if(isAdmin)
+        cout << adminFeatures;
+    else
+        cout << userFeatures;
 }
 
 int getUserChoiceNum(){
-
-    displayMenu();
 
     int choice;
     cout << "Unesite cijeli broj kao svoj izbor -> ";
@@ -20,9 +26,9 @@ int getUserChoiceNum(){
         cin.clear();
         cin.ignore(256,'\n');
         cout << "\nMolimo unesite cijeli broj umjesto karaktera.\n\n";
-        displayMenu();
         cout << "Unesite cijeli broj kao svoj izbor -> ";
     }
+    fflush(stdin);
     return choice;
 }
 

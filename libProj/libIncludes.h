@@ -9,10 +9,11 @@
 #include "modules/dataCheck.h"
 #include "modules/classes/user.h"
 #include "modules/classes/data/userList.h"
+#include "modules/adminFeatures.h"
 
 using namespace std;
 
-void applyFont(){
+void applyConsoleFont(){
 
     CONSOLE_FONT_INFOEX csSet;
     csSet.cbSize = sizeof(csSet);
