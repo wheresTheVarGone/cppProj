@@ -47,7 +47,6 @@ void viewExistingUsers(){
     while(getUserChoiceNum(0, 0) != 0){
             straightLine();
     }
-    clearDelay(*dTPtr);
 }
 
 void deleteExistingUser(){
@@ -87,7 +86,6 @@ void deleteExistingUser(){
 
         }
     } while(erased);
-    clearDelay(*dTPtr);
 }
 
 void addBook(){
@@ -117,12 +115,11 @@ void addBook(){
         books.push_back(Book(name, uniqueCode, true, quantity));
 
     }
-    clearDelay(*dTPtr);
 }
 
 void viewExistingBooks(){
 
-    cout << "Postojece knjige " << endl;
+    cout << "Postojece knjige u sistemu:" << endl;
     straightLine();
 
     for(Book book : books){
@@ -135,7 +132,6 @@ void viewExistingBooks(){
     while(getUserChoiceNum(0, 0) != 0){
             straightLine();
     }
-    clearDelay(*dTPtr);
 }
 
 void deleteExistingBook(){
@@ -166,7 +162,6 @@ void deleteExistingBook(){
             }
         }
     } while(erased);
-    clearDelay(*dTPtr);
 }
 
 void adminFeatureSelection(){
@@ -183,37 +178,41 @@ void adminFeatureSelection(){
         straightLine();
         choiceVar = getUserChoiceNum(1, 7);
 
+        clearDelay(*dTPtr);
+
         switch(choiceVar){
+
         case 1:
-            clearDelay(*dTPtr);
+
             registerNewUser();
+            continue;
             break;
         case 2:
-            clearDelay(*dTPtr);
+
             viewExistingUsers();
             break;
         case 3:
-            clearDelay(*dTPtr);
+
             deleteExistingUser();
             break;
         case 4:
-            clearDelay(*dTPtr);
+
             addBook();
             break;
         case 5:
-            clearDelay(*dTPtr);
+
             viewExistingBooks();
             break;
         case 6:
-            clearDelay(*dTPtr);
+
             deleteExistingBook();
             break;
         case 7:
             logoutInitiated = !logoutInitiated;
             cout << "Uspjesno ste odjavljeni." << endl;
-            clearDelay(*dTPtr);
             break;
         }
+        clearDelay(*dTPtr);
     }
 }
 

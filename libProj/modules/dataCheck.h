@@ -75,3 +75,11 @@ bool isBookExistant(string name){
     return false;
 }
 
+bool isBookNameExistant(string name){
+
+    for(Book book : books){
+        if(name == book.getName())
+            return true;
+    }
+    return false;
+}

@@ -7,16 +7,15 @@ class Book{
         bool isAvailable;
         int quantityAvailable;
     public:
-
         Book(string name, string uniqueId, bool isAvailable, int quantityAvailable);
         string getName();
         string getUniqueId();
         int getQuantityAvailable();
-
-
         void setName(string name);
         void setUniqueId(string uniqueId);
         void setQuantityAvailable(int quantity);
+        void decreaseQuantityAvailable();
+        void increaseQuantityAvailable();
 };
 
 Book::Book(string name, string uniqueId, bool isAvailable, int quantityAvailable){
@@ -57,4 +56,12 @@ void Book::setQuantityAvailable(int quantity){
     this->quantityAvailable = quantity;
 }
 
+void Book::decreaseQuantityAvailable(){
 
+    this->quantityAvailable -= 1;
+}
+
+void Book::increaseQuantityAvailable(){
+
+    this->quantityAvailable += 1;
+}

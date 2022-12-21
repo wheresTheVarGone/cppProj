@@ -1,6 +1,9 @@
 #pragma once
 
 #include "ops/hash.h"
+#include "book.h"
+
+#include <vector>
 
 class User{
 
@@ -9,8 +12,11 @@ class User{
         int userId;
         string username, password;
         bool isAdmin;
-    public:
 
+
+
+    public:
+        vector<string> myBooks;
         User(string username, string password, bool isAdmin, int userNum);
         string getUsername();
         string getPassword();
@@ -18,6 +24,7 @@ class User{
         int getUserId();
         void setUsername(string username);
         void setPassword(string password);
+        void addBook(string name);
 };
 
 User::User(string username, string password, bool isAdmin, int userNum){
@@ -56,4 +63,9 @@ bool User::getAdminStatus(){
 int User::getUserId(){
 
     return this->userId;
+}
+
+void User::addBook(string name){
+
+    this->myBooks.push_back(name);
 }
