@@ -31,7 +31,6 @@ void userAddBook(){
 
     strcpy(strUName, uName.c_str());
 
-
     if (isBookNameExistant(bookName)){
 
         for(Book &book : books){
@@ -61,15 +60,17 @@ void checkMyBooks(){
 
     int i = 1;
 
-    for(User usr : users){
+    for(User & usr : users){
 
         if(strUName == usr.getUsername()){
 
-            if(usr.myBooks.size() == 0) {
+            if(usr.ammountOfBooks() == 0) {
 
                 cout << "Trenutno nemate iznajmljenih knjiga." << endl;
-                straightLine();
             } else {
+
+                cout << "Knjige koje ste do sada iznajmili:" << endl;
+                straightLine();
 
                 for( auto book : usr.myBooks ) {
                     cout << i << ". - " << book << endl;
@@ -83,12 +84,56 @@ void checkMyBooks(){
                     straightLine();
                 }
             }
+        }
+    }
+}
 
+void returnBook(){
+
+    cout << "Molimo unesite ime knjige koju zelite vratiti (ako postoji)." << endl;
+    straightLine();
+
+    string bookName = inputData("Ime knjige");
+    string uName;
+
+    cout << "Molimo potvrdite svoje korisnicko ime." << endl;
+    straightLine();
+
+    do {
+
+        uName = inputData("K. ime");
+
+        if(!isUserExistant(uName)){
+            cout << "Nepostojece korisnicko ime, molimo unesite ponovno." << endl;
+            straightLine();
         }
 
+    } while(!isUserExistant(uName));
+
+
+    strcpy(strUName, uName.c_str());
+
+    if (isBookNameExistant(bookName)){
+
+        for(Book &book : books){
+
+            if(bookName == book.getName()){
+
+                    book.increaseQuantityAvailable();
+                    for(User & usr : users){
+
+                        if(uName == usr.getUsername()){
+                            usr.removeBook(bookName);
+                        }
+                    }
+            }
+        }
+    } else {
+        cout << "Knjiga sa unesenim imenom ne postoji" << endl;
     }
 
 }
+
 
 void userFeatureSelection(){
 
@@ -118,7 +163,7 @@ void userFeatureSelection(){
             userAddBook();
             break;
         case 4:
-
+            returnBook();
             break;
         case 5:
             logoutInitiated = !logoutInitiated;
