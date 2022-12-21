@@ -13,9 +13,5 @@ int main(){
     else
         userFeatureSelection();
     }
-
-
-
-
     return 0;
 }
