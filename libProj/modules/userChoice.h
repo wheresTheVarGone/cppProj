@@ -8,6 +8,7 @@ string userFeatures = "1 - Pregledaj svoje knjige\n2 - Pregledaj dostupne knjige
 
 using namespace std;
 
+
 void displayMenu(bool isAdmin){
 
     if(isAdmin)

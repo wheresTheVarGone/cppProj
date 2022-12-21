@@ -15,11 +15,6 @@ using namespace std;
 int userNum = 0;
 int * ptr = &userNum;
 
-string inputData(string msg){
-
-    return ensureData(msg, 5, 20);
-}
-
 bool initReg(bool isAdmin){
 
     char *tempUName = new char[20];

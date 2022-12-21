@@ -7,6 +7,7 @@ using namespace std;
 #include "classes/data/userList.h"
 #include "classes/data/bookList.h"
 
+
 bool checkIsInRange(int number, int bottomBorder, int topBorder){
 
     if(number < bottomBorder || number > topBorder)
@@ -30,6 +31,12 @@ string ensureData(string msg, int bottomBorder, int topBorder){
     }while(checkIsInRange(temp.size(), bottomBorder, topBorder));
     return temp;
 }
+
+string inputData(string msg){
+
+    return ensureData(msg, 5, 20);
+}
+
 
 bool checkData(string inData, string existData){
 

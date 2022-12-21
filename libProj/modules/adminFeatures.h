@@ -182,37 +182,30 @@ void adminFeatureSelection(){
 
         switch(choiceVar){
 
-        case 1:
-
-            registerNewUser();
-            continue;
-            break;
-        case 2:
-
-            viewExistingUsers();
-            break;
-        case 3:
-
-            deleteExistingUser();
-            break;
-        case 4:
-
-            addBook();
-            break;
-        case 5:
-
-            viewExistingBooks();
-            break;
-        case 6:
-
-            deleteExistingBook();
-            break;
-        case 7:
-            logoutInitiated = !logoutInitiated;
-            cout << "Uspjesno ste odjavljeni." << endl;
-            break;
-        }
-        clearDelay(*dTPtr);
+            case 1:
+                registerNewUser();
+                break;
+            case 2:
+                viewExistingUsers();
+                break;
+            case 3:
+                deleteExistingUser();
+                break;
+            case 4:
+                addBook();
+                break;
+            case 5:
+                viewExistingBooks();
+                break;
+            case 6:
+                deleteExistingBook();
+                break;
+            case 7:
+                logoutInitiated = !logoutInitiated;
+                cout << "Uspjesno ste odjavljeni." << endl;
+                break;
+            }
+            clearDelay(*dTPtr);
     }
 }
 
